@@ -189,8 +189,8 @@ public class EnemyDesignerWindow : EditorWindow
 
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(20);
-        GUILayout.Label("damage", skin.GetStyle("ObjLabel"), GUILayout.Width(60));
-        mageData.dmgType = (MageDmgType)EditorGUILayout.EnumPopup(mageData.dmgType, skin.GetStyle("Enum"));
+        GUILayout.Label("damage", skin.GetStyle("ObjLabel"), GUILayout.Width(60), GUILayout.Height(20));
+        mageData.dmgType = (MageDmgType)EditorGUILayout.EnumPopup(mageData.dmgType, skin.GetStyle("Text"));
         GUILayout.Space(20);
         EditorGUILayout.EndHorizontal();
 
@@ -198,12 +198,12 @@ public class EnemyDesignerWindow : EditorWindow
 
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(20);
-        GUILayout.Label("weapon", skin.GetStyle("ObjLabel"), GUILayout.Width(60));
-        mageData.wpnType = (MageWpnType)EditorGUILayout.EnumPopup(mageData.wpnType, skin.GetStyle("Enum"));
+        GUILayout.Label("weapon", skin.GetStyle("ObjLabel"), GUILayout.Width(60), GUILayout.Height(20));
+        mageData.wpnType = (MageWpnType)EditorGUILayout.EnumPopup(mageData.wpnType, skin.GetStyle("Text"));
         GUILayout.Space(20);
         EditorGUILayout.EndHorizontal();
 
-        GUILayout.Space(15);
+        GUILayout.Space(10);
 
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(35);
@@ -233,8 +233,8 @@ public class EnemyDesignerWindow : EditorWindow
 
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(20);
-        GUILayout.Label("class", skin.GetStyle("ObjLabel"), GUILayout.Width(60));
-        warriorData.classType = (WarriorClassType)EditorGUILayout.EnumPopup(warriorData.classType, skin.GetStyle("Enum"));
+        GUILayout.Label("class", skin.GetStyle("ObjLabel"), GUILayout.Width(60), GUILayout.Height(20));
+        warriorData.classType = (WarriorClassType)EditorGUILayout.EnumPopup(warriorData.classType, skin.GetStyle("Text"));
         GUILayout.Space(20);
         EditorGUILayout.EndHorizontal();
 
@@ -242,12 +242,12 @@ public class EnemyDesignerWindow : EditorWindow
 
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(20);
-        GUILayout.Label("weapon", skin.GetStyle("ObjLabel"), GUILayout.Width(60));
-        warriorData.wpnType = (WarriorWpnType)EditorGUILayout.EnumPopup(warriorData.wpnType, skin.GetStyle("Enum"));
+        GUILayout.Label("weapon", skin.GetStyle("ObjLabel"), GUILayout.Width(60), GUILayout.Height(20));
+        warriorData.wpnType = (WarriorWpnType)EditorGUILayout.EnumPopup(warriorData.wpnType, skin.GetStyle("Text"));
         GUILayout.Space(20);
         EditorGUILayout.EndHorizontal();
 
-        GUILayout.Space(15);
+        GUILayout.Space(10);
 
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(35);
@@ -277,9 +277,9 @@ public class EnemyDesignerWindow : EditorWindow
 
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(20);
-        GUILayout.Label("strategy", skin.GetStyle("ObjLabel"), GUILayout.Width(60));
+        GUILayout.Label("strategy", skin.GetStyle("ObjLabel"), GUILayout.Width(60), GUILayout.Height(20));
         GUILayout.Space(5);
-        rogueData.strategyType = (RogueStrategyType)EditorGUILayout.EnumPopup(rogueData.strategyType, skin.GetStyle("Enum"));
+        rogueData.strategyType = (RogueStrategyType)EditorGUILayout.EnumPopup(rogueData.strategyType, skin.GetStyle("Text"));
         GUILayout.Space(20);
         EditorGUILayout.EndHorizontal();
 
@@ -287,13 +287,13 @@ public class EnemyDesignerWindow : EditorWindow
 
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(20);
-        GUILayout.Label("weapon", skin.GetStyle("ObjLabel"), GUILayout.Width(60));
+        GUILayout.Label("weapon", skin.GetStyle("ObjLabel"), GUILayout.Width(60), GUILayout.Height(20));
         GUILayout.Space(5);
-        rogueData.wpnType = (RogueWpnType)EditorGUILayout.EnumPopup(rogueData.wpnType, skin.GetStyle("Enum"));
+        rogueData.wpnType = (RogueWpnType)EditorGUILayout.EnumPopup(rogueData.wpnType, skin.GetStyle("Text"));
         GUILayout.Space(20);
         EditorGUILayout.EndHorizontal();
 
-        GUILayout.Space(15);
+        GUILayout.Space(10);
 
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(35);
@@ -329,7 +329,7 @@ public class GeneralSettings : EditorWindow
     {
         dataSetting = setting;
         window = (GeneralSettings)GetWindow(typeof(GeneralSettings));
-        window.minSize = new Vector2(250, 200);
+        window.minSize = new Vector2(300, 250);
         window.Show();
     }
 
@@ -373,36 +373,64 @@ public class GeneralSettings : EditorWindow
 
     void DrawSettings(CharacterData characterData)
     {
+        GUILayout.Space(25);
+
         EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Prefab", skin.GetStyle("ObjLabel"), GUILayout.Width(60));
+        GUILayout.Space(30);
+        GUILayout.Label("Prefab", skin.GetStyle("ObjLabel"), GUILayout.Width(80), GUILayout.Height(20));
         characterData.prefab = (GameObject)EditorGUILayout.ObjectField(characterData.prefab, typeof(GameObject), false);
+        GUILayout.Space(30);
         EditorGUILayout.EndHorizontal();
 
+        GUILayout.Space(5);
+
         EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Max Health", skin.GetStyle("ObjLabel"), GUILayout.Width(60));
+        GUILayout.Space(30);
+        GUILayout.Label("Max Health", skin.GetStyle("ObjLabel"), GUILayout.Width(80), GUILayout.Height(20));
         characterData.maxHealth = EditorGUILayout.FloatField(characterData.maxHealth);
+        GUILayout.Space(30);
         EditorGUILayout.EndHorizontal();
 
+        GUILayout.Space(5);
+
         EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Max Energy", skin.GetStyle("ObjLabel"), GUILayout.Width(60));
+        GUILayout.Space(30);
+        GUILayout.Label("Max Energy", skin.GetStyle("ObjLabel"), GUILayout.Width(80), GUILayout.Height(20));
         characterData.maxEnergy = EditorGUILayout.FloatField(characterData.maxEnergy);
+        GUILayout.Space(30);
         EditorGUILayout.EndHorizontal();
 
+        GUILayout.Space(5);
+
         EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Power", skin.GetStyle("ObjLabel"), GUILayout.Width(60));
+        GUILayout.Space(30);
+        GUILayout.Label("Power", skin.GetStyle("ObjLabel"), GUILayout.Width(80), GUILayout.Height(20));
         characterData.power = EditorGUILayout.Slider(characterData.power, 0, 100);
+        GUILayout.Space(30);
         EditorGUILayout.EndHorizontal();
 
+        GUILayout.Space(5);
+
         EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Crit Chance", skin.GetStyle("ObjLabel"), GUILayout.Width(60));
+        GUILayout.Space(30);
+        GUILayout.Label("Crit Chance", skin.GetStyle("ObjLabel"), GUILayout.Width(80), GUILayout.Height(20));
         characterData.critChance = EditorGUILayout.Slider(characterData.critChance, 0, characterData.power);
+        GUILayout.Space(30);
         EditorGUILayout.EndHorizontal();
+
+        GUILayout.Space(5);
 
         EditorGUILayout.BeginHorizontal();
-        GUILayout.Label("Name", skin.GetStyle("ObjLabel"), GUILayout.Width(60));
+        GUILayout.Space(30);
+        GUILayout.Label("Name", skin.GetStyle("ObjLabel"), GUILayout.Width(80), GUILayout.Height(20));
         characterData.objName = EditorGUILayout.TextField(characterData.objName);
+        GUILayout.Space(30);
         EditorGUILayout.EndHorizontal();
 
+        GUILayout.Space(15);
+
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Space(30);
         if(characterData.prefab == null)
         {
             EditorGUILayout.HelpBox("请拖入[Prefab]以创建Enemy对象!", MessageType.Warning);
@@ -411,11 +439,13 @@ public class GeneralSettings : EditorWindow
         {
             EditorGUILayout.HelpBox("请输入[Name]以创建Enemy对象!", MessageType.Warning);
         }
-        else if (GUILayout.Button("Finish and Save", GUILayout.Height(30)))
+        else if (GUILayout.Button("Finish and Save", skin.GetStyle("Button"), GUILayout.Height(40)))
         {
             SaveCharacterData();
             window.Close();
         }
+        GUILayout.Space(30);
+        EditorGUILayout.EndHorizontal();
 
     }
 
